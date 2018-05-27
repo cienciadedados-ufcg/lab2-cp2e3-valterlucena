@@ -1,0 +1,36 @@
+---
+title: "Marina e seus diamantes."
+author: "Valter Lucena"
+date: 2018-05-25
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, echo=FALSE, warning=FALSE}
+library(tidyverse)
+library(viridis)
+library(here)
+library(lubridate)
+theme_set(theme_minimal())
+```
+
+# Importando os dados
+
+```{r message=FALSE}
+musicas = read_csv(here::here("data/marina.csv")) %>% 
+    filter(album_name %in% c("The Family Jewels", 
+                             "Electra Heart", 
+                             "FROOT"))
+```
+
+
