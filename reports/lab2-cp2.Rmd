@@ -24,7 +24,19 @@ library(lubridate)
 theme_set(theme_minimal())
 ```
 
+Marina Lambrini Diamandis é uma cantora e compositora galesa de descendência grega, que atende pelo nome artístico de Marina and the Diamonds (trocadilho com seu sobrenome), cujo estilo musical vagueia entre *Indie pop*, *synth-pop* e *new wave*. A cantora possui 3 álbuns em sua discografia, e cada um deles denota uma "era" diferente da artista. 
+
+Suas músicas falam sobre situações facilmente identificáveis à qualquer pessoa, mas sem soar clichê, narrando de decepções amorosas e problemas em relacionamentos a questionamentos sobre a vida e sobre a sociedade, conquistando vários ouvintes ao longo de sua carreira.
+
+Sabendo que a artista tem algumas músicas de sucesso, mas não é considerada um nome forte do mercado musical, seria possível identificar alguma característica em comum em suas músicas mais populares?
+
+O [Spotify](https://www.spotify.com) possibilia, com sua API, uma forma de analisar essas características. A partir da análise do áudio da música, é possível quantificar o quão acústica ela é, se ela é muito ou pouco enérgica, entre outras características. Uma dessas características é bastante interessante para responder o questionamento feito anteriormente: a valência. A valência mede a positividade transmitida por uma música. Assim, músicas com valência alta soam mais felizes, e com valência baixa soam mais tristes. Uma descrição melhor desses atributos pode ser encontrado [aqui](https://beta.developer.spotify.com/documentation/web-api/reference/object-model/#audio-features-object). 
+
+Analisaremos, então, utilizando dados fornecidos pelo *Spotify*, como a valência e outras caracterísicas das músicas de Marina and the Diamonds se relacionam, e como essas afetam sua popularidade.
+
 # Importando os dados
+
+Os dados que serão utilizados foram importados a partir da API do *Spotify* através do pacote [spotifyr](https://github.com/charlie86/spotifyr). Como existem diferentes versões dos mesmos álbuns na base de dados, vamos filtrar apenas os dados de músicas que pertencem às versões normais dos álbuns da cantora.
 
 ```{r message=FALSE}
 musicas = read_csv(here::here("data/marina.csv")) %>% 
@@ -32,5 +44,3 @@ musicas = read_csv(here::here("data/marina.csv")) %>%
                              "Electra Heart", 
                              "FROOT"))
 ```
-
-
